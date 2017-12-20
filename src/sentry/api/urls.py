@@ -132,6 +132,7 @@ from .endpoints.user_identity_details import UserIdentityDetailsEndpoint
 from .endpoints.user_index import UserIndexEndpoint
 from .endpoints.user_details import UserDetailsEndpoint
 from .endpoints.user_organizations import UserOrganizationsEndpoint
+from .endpoints.user_notifications import UserNotificationsEndpoint
 from .endpoints.event_file_committers import EventFileCommittersEndpoint
 from .endpoints.setup_wizard import SetupWizard
 
@@ -191,6 +192,11 @@ urlpatterns = patterns(
         r'^users/(?P<user_id>[^\/]+)/organizations/$',
         UserOrganizationsEndpoint.as_view(),
         name='sentry-api-0-user-organizations'
+    ),
+    url(
+        r'^users/(?P<user_id>[^\/]+)/notifications/$',
+        UserNotificationsEndpoint.as_view(),
+        name='sentry-api-0-user-notifications'
     ),
 
     # Organizations
